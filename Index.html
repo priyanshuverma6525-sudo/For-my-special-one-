@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My BFF ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    /* PASSWORD SCREEN */
+    #lockScreen {
+      width: 90%;
+      max-width: 400px;
+      background: rgba(255,255,255,0.95);
+      padding: 35px 25px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    #lockScreen h1 {
+      color: #ff3f6c;
+      margin-bottom: 10px;
+    }
+
+    #lockScreen p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #ff7b9c;
+      border-radius: 12px;
+      outline: none;
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      border: none;
+      background: #ff3f6c;
+      color: white;
+      padding: 13px 25px;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    #error {
+      color: red;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* SURPRISE */
+    #surprise {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      text-align: center;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    #surprise h1 {
+      font-size: 42px;
+      margin-top: 30px;
+      animation: pop 1s ease;
+    }
+
+    .subtitle {
+      margin: 15px auto;
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .card {
+      max-width: 600px;
+      margin: 30px auto;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+    }
+
+    .message {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .heart {
+      font-size: 55px;
+      animation: beat 1s infinite;
+      margin: 20px;
+    }
+
+    .photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      margin: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* FLOATING HEARTS */
+    .floating-heart {
+      position: fixed;
+      bottom: -50px;
+      font-size: 25px;
+      animation: floatUp 5s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes beat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PASSWORD -->
+  <div id="lockScreen">
+    <div style="font-size:60px;">🔐</div>
+
+    <h1>Private Surprise ❤️</h1>
+
+    <p>
+      Ye surprise sirf mere BFF ke liye hai 😌<br>
+      Password daalo...
+    </p>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter Password"
+    >
+
+    <button onclick="unlock()">Open Surprise 💝</button>
+
+    <div id="error">
+      Wrong password 😜
+    </div>
+  </div>
+
+
+  <!-- SURPRISE -->
+  <div id="surprise">
+
+    <div class="heart">❤️</div>
+
+    <h1>Hey My BFF 🥹❤️</h1>
+
+    <p class="subtitle">
+      Kuch log life mein accidentally milte hain,
+      lekin phir life ka sabse important part ban jaate hain...
+    </p>
+
+    <!-- PHOTO -->
+    <!-- Apni photo ka naam yaha change karo -->
+    <img src="bff.jpg" class="photo" alt="BFF Photo">
+
+
+    <div class="card">
+
+      <h2>Dear Best Friend 🫶</h2>
+
+      <p class="message">
+        Tu sirf mera friend nahi hai...
+        tu woh insaan hai jiske saath main
+        bina soche kuch bhi share kar sakta hoon. ❤️
+        <br><br>
+
+        Life mein chahe kitne bhi log aaye,
+        kuch friendships hamesha special rehti hain.
+        Aur hamari friendship unhi mein se ek hai. 🥹
+        <br><br>
+
+        Thank you for always being there.
+        Stay the same, stay crazy,
+        aur hamesha mere BFF rehna. ❤️
+        <br><br>
+
+        <b>You're genuinely one of the best people
+        I've ever met. 🫂❤️</b>
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>One Last Thing... 👀</h2>
+
+      <p class="message">
+        Agar tu ye poora page padh raha/rahi hai...
+        <br><br>
+
+        Toh congratulations 😂❤️
+        <br><br>
+
+        Tu officially mera
+        <b>PERMANENT BFF</b> hai. 🔒🫶
+      </p>
+
+    </div>
+
+    <div class="heart">💖</div>
+
+    <p>
+      Made with ❤️ just for you
+    </p>
+
+  </div>
+
+
+  <script>
+
+    // 🔐 APNA PASSWORD YAHAN CHANGE KARO
+    const correctPassword = "BFF2026";
+
+    function unlock() {
+
+      const enteredPassword =
+        document.getElementById("password").value;
+
+      if (enteredPassword === correctPassword) {
+
+        document.getElementById("lockScreen").style.display = "none";
+
+        document.getElementById("surprise").style.display = "block";
+
+        startHearts();
+
+      } else {
+
+        document.getElementById("error").style.display = "block";
+
+      }
+    }
+
+
+    // ENTER KEY SE BHI OPEN HOGA
+    document.getElementById("password")
+      .addEventListener("keypress", function(event) {
+
+        if (event.key === "Enter") {
+          unlock();
+        }
+
+      });
+
+
+    // FLOATING HEARTS
+    function startHearts() {
+
+      setInterval(() => {
+
+        const heart =
+          document.createElement("div");
+
+        heart.className = "floating-heart";
+
+        const hearts = ["❤️","💖","💕","💗","💓","🫶"];
+
+        heart.innerHTML =
+          hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left =
+          Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+          (20 + Math.random() * 25) + "px";
+
+        heart.style.animationDuration =
+          (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 8000);
+
+      }, 500);
+
+    }
+
+  </script>
+
+</body>
+</html>
