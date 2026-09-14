@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My BFF ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3, #8e2de2);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* PASSWORD SCREEN */
+    #lockScreen {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .lockBox {
+      width: 100%;
+      max-width: 380px;
+      padding: 35px 25px;
+      text-align: center;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 25px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+    }
+
+    .lock {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    .lockBox h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .lockBox p {
+      opacity: 0.9;
+      margin-bottom: 22px;
+    }
+
+    #password {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+      color: #e84393;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #error {
+      color: #ffe0e0;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* MAIN PAGE */
+    #mainPage {
+      display: none;
+      min-height: 100vh;
+      padding: 35px 18px;
+      text-align: center;
+      position: relative;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .heart {
+      font-size: 55px;
+      animation: beat 1.2s infinite;
+    }
+
+    @keyframes beat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+
+    h2 {
+      font-size: 38px;
+      margin: 12px 0;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      opacity: 0.95;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      padding: 25px;
+      margin-top: 20px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+    }
+
+    /* PHOTO */
+    .photoBox {
+      width: 100%;
+      max-width: 350px;
+      height: 350px;
+      margin: auto;
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photoBox img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photoText {
+      font-size: 17px;
+      padding: 20px;
+    }
+
+    .message {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .message span {
+      font-size: 28px;
+    }
+
+    .special {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+    /* FLOATING HEARTS */
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 22px;
+      animation: floatUp linear forwards;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+      h2 {
+        font-size: 30px;
+      }
+
+      .heart {
+        font-size: 48px;
+      }
+
+      .photoBox {
+        height: 300px;
+      }
+
+      .message {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PASSWORD SCREEN -->
+  <section id="lockScreen">
+    <div class="lockBox">
+
+      <div class="lock">🔐</div>
+
+      <h1>Private Surprise ❤️</h1>
+
+      <p>
+        Ye page sirf meri special BFF ke liye hai 🫶
+      </p>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter password"
+        onkeydown="if(event.key==='Enter') unlock()"
+      >
+
+      <button onclick="unlock()">Unlock ❤️</button>
+
+      <div id="error">
+        Wrong password 😜 Try again!
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- MAIN WEBSITE -->
+  <section id="mainPage">
+
+    <div class="container">
+
+      <div class="heart">❤️</div>
+
+      <h2>For My Special BFF 🫶</h2>
+
+      <p class="subtitle">
+        Some people become friends...<br>
+        and some become family. ❤️
+      </p>
+
+
+      <!-- PHOTO CARD -->
+      <div class="card">
+
+        <div class="photoBox">
+
+          <!--
+          Apni photo ka naam bff.jpg rakho
+          aur index.html ke saath upload karo.
+          -->
+
+          <img
+            src="bff.jpg"
+            alt="Our Special Memory"
+            onerror="this.style.display='none'; document.getElementById('photoText').style.display='block';"
+          >
+
+          <div
+            id="photoText"
+            class="photoText"
+            style="display:none;"
+          >
+            📸<br><br>
+            Yahan apni favourite BFF photo upload karo ❤️
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- MESSAGE -->
+      <div class="card">
+
+        <div class="message">
+
+          <span>💖</span>
+
+          <p>
+            Life mein bahut log milte hain,
+            kuch log yaad ban jaate hain,
+            lekin kuch log dil ka permanent
+            part ban jaate hain.
+          </p>
+
+          <br>
+
+          <p>
+            Tu unhi special logon mein se hai. 🫶
+          </p>
+
+          <br>
+
+          <p>
+            Chahe kitni bhi fights ho,
+            kitni bhi bakchodi ho,
+            kitne bhi crazy moments ho...
+            <br>
+            <b>Tu hamesha meri BFF rahegi. ❤️</b>
+          </p>
+
+          <div class="special">
+            No matter what...<br>
+            BFF forever 🫂❤️
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer">
+        Made with ❤️ just for you.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script>
+
+    /* CHANGE PASSWORD HERE */
+    const correctPassword = "BFF2026";
+
+
+    function unlock() {
+
+      const enteredPassword =
+        document.getElementById("password").value;
+
+      const error =
+        document.getElementById("error");
+
+      if (enteredPassword === correctPassword) {
+
+        document.getElementById("lockScreen").style.display = "none";
+
+        document.getElementById("mainPage").style.display = "block";
+
+        startHearts();
+
+      } else {
+
+        error.style.display = "block";
+
+        document.getElementById("password").value = "";
+
+      }
+
+    }
+
+
+    /* FLOATING HEARTS */
+
+    function createHeart() {
+
+      const heart =
+        document.createElement("div");
+
+      heart.className = "floating-heart";
+
+      const hearts = ["❤️","💕","💖","💗","💓","🫶","💞"];
+
+      heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left =
+        Math.random() * 100 + "vw";
+
+      heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+      heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 9000);
+
+    }
+
+
+    function startHearts() {
+
+      setInterval(createHeart, 600);
+
+    }
+
+  </script>
+
+</body>
+</html>
